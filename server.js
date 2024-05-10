@@ -20,7 +20,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 // Serve static front-end files (HTML, etc.) from "./public"
-// app.use(express.static("public"));
+app.use(express.static("public"));
 
 
 ///////////////////////////////////////////////////////////////////////
@@ -91,6 +91,12 @@ app.get("/api/todos/:id", function (request, response) {
         .json(matchingTodo);
 });
 
+
+//Get todos by user page
+
+app.get("/todos", function (request, response) {
+    response.sendFile(__dirname + "/public/todos.html");
+})
 
 // Get all TODOs for a given user id
 app.get("/api/todos/byuser/:id", function (request, response) {
@@ -356,5 +362,5 @@ app.post("/api/users", function (request, response) {
 
 const server = app.listen(8083, () => {
     const port = server.address().port;
-    console.info("App listening at port", port);
+    console.info("LOG: App listening at http://localhost:%s", port);
 });
