@@ -91,13 +91,6 @@ app.get("/api/todos/:id", function (request, response) {
         .json(matchingTodo);
 });
 
-
-//Get todos by user page
-
-app.get("/todos", function (request, response) {
-    response.sendFile(__dirname + "/public/todos.html");
-})
-
 // Get all TODOs for a given user id
 app.get("/api/todos/byuser/:id", function (request, response) {
     const requestedId = request.params.id;
@@ -353,6 +346,19 @@ app.post("/api/users", function (request, response) {
         .status(201)
         .json(user);
 });
+
+
+/// routes
+
+//Get todos by user page
+app.get("/todos", function (request, response) {
+    response.sendFile(__dirname + "/public/todos.html");
+})
+
+//Create a new todo
+app.get("/newtodo", function (request, response) {
+    response.sendFile(__dirname + "/public/new_todo.html");
+})
 
 
 ///////////////////////////////////////////////////////////////////////
