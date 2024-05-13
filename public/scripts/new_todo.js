@@ -2,6 +2,8 @@ window.onload = function() {
     // load users dropdown
     const userid = document.getElementById('userid')
     const selectLabel = document.createElement('option')
+    const navToggle = document.getElementById('nav-toggle')
+
     selectLabel.disabled = true
     selectLabel.selected = true
     selectLabel.value = "Select"
@@ -38,6 +40,10 @@ window.onload = function() {
             option.textContent = cat.name
             category.appendChild(option)
         })
+            navToggle.addEventListener('click', function() {
+        const navContent = document.getElementById('nav-content')
+        navContent.classList.toggle('hidden')
+    })
     })
 
     function submitTodo(event) {

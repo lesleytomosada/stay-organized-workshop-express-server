@@ -356,8 +356,13 @@ app.get("/todos", function (request, response) {
 })
 
 //Create a new todo
-app.get("/newtodo", function (request, response) {
+app.get("/new_todo", function (request, response) {
     response.sendFile(__dirname + "/public/new_todo.html");
+})
+
+//create a new user
+app.get("/new_user", function (request, response) {
+    response.sendFile(__dirname + "/public/new_user.html");
 })
 
 

@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     const users = document.getElementById('users')
     const selectLabel = document.createElement('option')
+    const navToggle = document.getElementById('nav-toggle')
     selectLabel.value = "Select"
     selectLabel.textContent = "Select a User"
     selectLabel.disabled = true
@@ -17,6 +18,10 @@ document.addEventListener('DOMContentLoaded', function() {
         })
     })
     users.addEventListener('change', getTodos)
+    navToggle.addEventListener('click', function() {
+        const navContent = document.getElementById('nav-content')
+        navContent.classList.toggle('hidden')
+    })
 })
 
 function getTodos() {
