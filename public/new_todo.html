@@ -11,7 +11,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
     <title>Stay Organized</title>
 </head>
-<body>
+<body class="bg-gray-200">
   <nav class="flex items-center justify-between flex-wrap bg-gray-300 p-6">
     <div class="flex items-center flex-shrink-0 text-gray-600 mr-6">
       <img src="./images/logo.png" class="logo w-32" />
@@ -67,25 +67,61 @@
       </div>
     </div>
   </nav>
-   <h3>Add a New Todo:</h3>
-   
-   <form>
-    <label for="userid">User:</label>
-    <select id="userid" class="border rounded"></select> <br><br>
-    <label for="category">Category:</label>
-    <select id="category" class="border rounded"></select> <br><br>
-    <label for="description">Description:</label>
-    <input id="description" class="border rounded" type="text"></select> <br><br>
-    <label for="deadline">Deadline:</label>
-    <input id="deadline" type="date" class="border rounded"></select> <br><br>
-    <label for="priority">Priority:</label>
-    <select id="priority" name="priority" class="border rounded">
-        <option value="Low">Low</option>
-        <option value="Medium">Medium</option>
-        <option value="High">High</option>
-    </select> <br><br>
-    <input type="submit" id="submit" class="border rounded px-2">
-   </form>
+
+<div id="todoForm" class="w-full mt-8 flex items-center justify-center">
+  <div class="w-full max-w-lg">
+    <form class="bg-white shadow-md rounded-lg px-8 pt-6 pb-8 mb-4">
+      <div id="title" class="my-3">
+        <h1 class="text-gray-500 font-semibold uppercase tracking-widest">Add a New Todo</h1>
+      </div>
+      <div class="my-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="userid">
+          User
+        </label>
+        <select id="userid" class="shadow border px-2 py-2 rounded w-full text-gray-400"></select>
+      </div>
+
+      <div class="my-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="description">
+          Description
+        </label>
+        <input type="text" id="description" class="shadow border px-2 py-2 rounded w-full text-gray-400"></select>
+      </div>
+
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="category">
+          Category
+        </label>
+        <select id="category" class="shadow border px-2 py-2 rounded w-full text-gray-400"></select>
+      </div>
+
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="deadline">
+          Deadline
+        </label>
+        <input type="date" id="deadline" class="shadow border px-2 py-2 rounded w-full text-gray-400"></select>
+      </div>
+
+      <div class="mb-6">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="category">
+          Priority
+        </label>
+        <select id="priority" class="shadow border px-2 py-2 rounded w-full text-gray-400">
+          <option value="Low">Low</option>
+          <option value="Medium">Medium</option>
+          <option value="High">High</option>
+        </select>
+      </div>
+
+      <div class="flex items-center justify-between">
+        <button id="submit" class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
+          Add
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+  
    <script src="scripts/new_todo.js"></script>
 </body>
 </html>

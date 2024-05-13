@@ -1,39 +1,39 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const users = document.getElementById('users')
-    const selectLabel = document.createElement('option')
-    const navToggle = document.getElementById('nav-toggle')
-    selectLabel.value = "Select"
-    selectLabel.textContent = "Select a User"
-    selectLabel.disabled = true
-    selectLabel.selected = true
-    users.appendChild(selectLabel)
-    fetch("http://localhost:8083/api/users")
-    .then(response => response.json())
-    .then(data => {
-        data.forEach(user => {
-            const option = document.createElement('option')
-            option.value = user.id
-            option.textContent = user.name
-            users.appendChild(option)
-        })
-    })
-    users.addEventListener('change', getTodos)
-    navToggle.addEventListener('click', function() {
-        const navContent = document.getElementById('nav-content')
-        navContent.classList.toggle('hidden')
-    })
-})
+document.addEventListener("DOMContentLoaded", function () {
+  const users = document.getElementById("users");
+  const selectLabel = document.createElement("option");
+  const navToggle = document.getElementById("nav-toggle");
+  selectLabel.value = "Select";
+  selectLabel.textContent = "Select a User";
+  selectLabel.disabled = true;
+  selectLabel.selected = true;
+  users.appendChild(selectLabel);
+  fetch("http://localhost:8083/api/users")
+    .then((response) => response.json())
+    .then((data) => {
+      data.forEach((user) => {
+        const option = document.createElement("option");
+        option.value = user.id;
+        option.textContent = user.name;
+        users.appendChild(option);
+      });
+    });
+  users.addEventListener("change", getTodos);
+  navToggle.addEventListener("click", function () {
+    const navContent = document.getElementById("nav-content");
+    navContent.classList.toggle("hidden");
+  });
+});
 
 function getTodos() {
-    const users = document.getElementById('users')
-    const todoResults = document.getElementById('todoResults')
-    const userId = users.value
-    fetch(`http://localhost:8083/api/todos/byuser/${userId}`)
-    .then(response => response.json())
-    .then(data => {
-        console.log(data)
-    todoResults.innerHTML = ''
-    data.forEach(todo => {
+  const users = document.getElementById("users");
+  const todoResults = document.getElementById("todoResults");
+  const userId = users.value;
+  fetch(`http://localhost:8083/api/todos/byuser/${userId}`)
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data);
+      todoResults.innerHTML = "";
+      data.forEach((todo) => {
         const card = `
         <div class="w-64 h-40 mx-1 my-2 relative flex rounded border rounded overflow-hidden shadow-sm">
         <div class="px-3 py-3">
@@ -42,29 +42,23 @@ function getTodos() {
           <p class="text-gray-700 text-base">
             Deadline: ${todo.deadline}
           </p>
-          <button id="details" class="absolute bottom-1 left-1 border rounded bg-gray-300 px-3 py-1 mt-3 hover:text-white">Details</button>
+          <button id="details" class="absolute bottom-2 left-2 border rounded text-white bg-gray-500 px-3 py-1 mt-3 hover:bg-gray-700">Details</button>
         </div>
-      </div>`
-        todoResults.innerHTML += card
-        const detailsButtons = document.querySelectorAll('#details');
+      </div>`;
+        todoResults.innerHTML += card;
+        const detailsButtons = document.querySelectorAll("#details");
         detailsButtons.forEach((button, index) => {
-            button.addEventListener('click', function(){
-                getTodoDetails(data[index]);
-            });
+          button.addEventListener("click", function () {
+            getTodoDetails(data[index]);
+          });
         });
-        
-        })
-    }
-    
-    )
-    }
-
-
-
+      });
+    });
+}
 
 function getTodoDetails(task) {
-    const modal = document.getElementById('modal')
-    const taskModal = `
+  const modal = document.getElementById("modal");
+  const taskModal = `
     <div id="default-modal" tabindex="-1" aria-hidden="true" class="fixed inset-0 flex items-center justify-center overflow-x-hidden z-50">
   <div class="relative p-4 w-full max-w-md max-h-full">
       <!-- Modal content -->
@@ -84,7 +78,7 @@ function getTodoDetails(task) {
           <!-- Modal body -->
           <div class="p-4 md:p-5 space-y-4">
               <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
-                  Status: ${task.completed ? 'Completed' : 'Not Completed'}
+                  Status: ${task.completed ? "Completed" : "Not Completed"}
               </p>
               <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
                   Catergory: ${task.category}
@@ -92,20 +86,22 @@ function getTodoDetails(task) {
               <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
                   Priority: ${task.priority}
               </p>
+              <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
+                  Deadline: ${task.deadline}
+              </p>
           </div>
       </div>
   </div>
 </div>
 </div>
-    `
-    modal.innerHTML = taskModal
-    modal.classList.toggle('hidden')
-    const closeButton = document.getElementById('close')
-    closeButton.addEventListener('click', hideModal)
+    `;
+  modal.innerHTML = taskModal;
+  modal.classList.toggle("hidden");
+  const closeButton = document.getElementById("close");
+  closeButton.addEventListener("click", hideModal);
+}
 
-  }
-
-  function hideModal() {
-    const modal = document.getElementById('modal')
-    modal.classList.toggle('hidden')
-  }
+function hideModal() {
+  const modal = document.getElementById("modal");
+  modal.classList.toggle("hidden");
+}
