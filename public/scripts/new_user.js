@@ -5,13 +5,13 @@ navToggle.addEventListener('click', function() {
 })
 
 const submit = document.getElementById('submit');
-submit.addEventListener('click', (event) => {
+submit.addEventListener('click', async (event) => {
     event.preventDefault();
     const name = document.getElementById('name').value;
     const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
     const validPassword = validatePassword();
-    const validUsername = checkUsername();
+    const validUsername = await checkUsername();
 
     if (!validPassword) {
         alert("Passwords do not match");
@@ -46,7 +46,6 @@ function validatePassword() {
     const password = document.getElementById('password').value;
     const confirm = document.getElementById('confirm').value;
     if (password !== confirm) {
-        alert("Passwords do not match");
         return false;
     }
     return true;
@@ -54,23 +53,23 @@ function validatePassword() {
 
 function checkUsername(){
     const username = document.getElementById('username').value;
-    fetch(`/api/users/${username}`)
+    return fetch(`/api/username_available/${username}`)
         .then(response => {
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
             return response.json();
         })
         .then(data => {
-            if (data.exists) {
-                alert("Username already exists");
-                return false;
-            } else {
+            if (data.available === true) {
                 return true;
+            } else {
+                return false;
             }
         })
         .catch(error => {
             console.error(error);
         });
+    
+}
+
+function postNewUser() {
     
 }

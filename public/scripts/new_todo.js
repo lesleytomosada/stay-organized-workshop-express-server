@@ -34,7 +34,6 @@ window.onload = function() {
     .then(response => response.json())
     .then(data => {
         data.forEach(cat => {
-            console.log("hello", cat)
             const option = document.createElement('option')
             option.value = cat.name
             option.textContent = cat.name
@@ -72,7 +71,6 @@ window.onload = function() {
         })
         .then(response => response.json())
         .then(data => {
-            console.log(data)
             alert('Todo created successfully')
             window.location.href = '/todos'
         })

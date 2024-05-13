@@ -31,7 +31,6 @@ function getTodos() {
   fetch(`http://localhost:8083/api/todos/byuser/${userId}`)
     .then((response) => response.json())
     .then((data) => {
-      console.log(data);
       todoResults.innerHTML = "";
       data.forEach((todo) => {
         const card = `
@@ -86,7 +85,7 @@ function getTodoDetails(task) {
               <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
                   Priority: ${task.priority}
               </p>
-              <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
+              <p class="text-base leading-relaxed mb-6 text-gray-500 dark:text-gray-400">
                   Deadline: ${task.deadline}
               </p>
           </div>
