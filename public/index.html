@@ -1,50 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
-    href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
-    rel="stylesheet"
-  />
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
     <title>Stay Organized</title>
-</head>
-<body>
-  <nav class="flex items-center justify-between flex-wrap bg-blue-400 p-6">
-    <div class="flex items-center flex-shrink-0 text-white mr-6">
-      <svg class="fill-current h-8 w-8 mr-2" width="54" height="54" viewBox="0 0 54 54" xmlns="http://www.w3.org/2000/svg"><path d="M13.5 22.1c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05zM0 38.3c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05z"/></svg>
-      <span class="font-semibold text-xl">Stay Organized</span>
-    </div>
-    <div class="block lg:hidden">
-      <button id="nav-toggle" class="flex items-center px-3 py-2 border rounded text-blue-200 border-blue-400 hover:text-white hover:border-white">
-        <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/></svg>
-      </button>
-    </div>
-    <div id="nav-content" class="hidden lg:flex w-full block flex-grow lg:items-center lg:w-auto">
-      <div class="text-sm lg:flex-grow">
-        <a href="http://localhost:8083" class="block mt-4 lg:inline-block lg:mt-0 text-blue-100 hover:text-white mr-4">
-          Home
-        </a>
-        <a href="http://localhost:8083/todos" class="block mt-4 lg:inline-block lg:mt-0 text-blue-100 hover:text-white mr-4">
-          Todos
-        </a>
-        <a href="http://localhost:8083/new_todo" class="block mt-4 lg:inline-block lg:mt-0 text-blue-100 hover:text-white mr-4">
-          New Todo
-        </a>
-        <a href="http://localhost:8083/new_user" class="block mt-4 lg:inline-block lg:mt-0 text-blue-100 hover:text-white">
-          New User
-        </a>
+  </head>
+  <body>
+    <nav class="flex items-center justify-between flex-wrap bg-gray-300 p-6">
+      <div class="flex items-center flex-shrink-0 text-gray-600 mr-6">
+        <span class="font-semibold text-xl">Stay Organized</span>
       </div>
-    </div>
-  </nav>
-    <h3>Welcome to Stay Organized</h3>
+      <div class="block lg:hidden">
+        <button
+          id="nav-toggle"
+          class="flex items-center px-3 py-2 border rounded text-gray-500 border-gray-500 hover:text-gray-600 hover:border-gray-600"
+        >
+          <svg
+            class="fill-current h-3 w-3"
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <title>Menu</title>
+            <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
+          </svg>
+        </button>
+      </div>
+      <div
+        id="nav-content"
+        class="hidden lg:flex w-full block flex-grow lg:items-center lg:w-auto"
+      >
+        <div class="text-sm lg:flex-grow">
+          <a
+            href="http://localhost:8083"
+            class="block mt-2 lg:inline-block lg:mt-0 text-gray-500 hover:text-white mr-4"
+          >
+            Home
+          </a>
+          <a
+            href="http://localhost:8083/todos"
+            class="block mt-2 lg:inline-block lg:mt-0 text-gray-500 hover:text-white mr-4"
+          >
+            Todos
+          </a>
+          <a
+            href="http://localhost:8083/new_todo"
+            class="block mt-2 lg:inline-block lg:mt-0 text-gray-500 hover:text-white mr-4"
+          >
+            New Todo
+          </a>
+          <a
+            href="http://localhost:8083/new_user"
+            class="block mt-2 lg:inline-block lg:mt-0 text-gray-500 hover:text-white"
+          >
+            New User
+          </a>
+        </div>
+      </div>
+    </nav>
+    <header>
+      <div
+        class="w-full bg-center h-screen bg-cover"
+        style="
+          background-image: url(https://images.pexels.com/photos/2736499/pexels-photo-2736499.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
+        "
+      >
+        <div
+          class="flex items-center justify-center w-full h-full bg-gray-900 bg-opacity-50 py-12"
+        >
+          <div class="text-center">
+            <div class="container px-4 mx-auto">
+              <div class="max-w-4xl mx-auto text-center">
+                <span
+                  class="text-gray-200 font-semibold uppercase tracking-widest"
+                  >Stay Organized</span
+                >
+                <h2
+                  class="mt-8 mb-6 text-4xl lg:text-5xl font-bold text-gray-100"
+                >
+                Streamlining Productivity, One Task at a Time.
+                </h2>
+                <p class="max-w-3xl mx-auto mb-10 text-lg text-gray-300">
+                  Stay Organized will help you keep track of your
+                  tasks and boost your productivity. With a simple and intuitive
+                  interface, you can easily manage your to-dos, helping you stay
+                  organized and focused on what matters most.
+                </p>
+                <a
+                  class="inline-block w-full md:w-auto mb-4 md:mr-6 py-5 px-8 text-sm font-bold uppercase border-2 border-transparent bg-gray-200 rounded hover:bg-gray-100 text-gray-800 transition duration-200"
+                  href="http://localhost:8083/todos"
+                  >View all Todos</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
     <script>
-          const navToggle = document.getElementById('nav-toggle')
-          const navContent = document.getElementById('nav-content')
-          navToggle.addEventListener('click', function() {
-            const navContent = document.getElementById('nav-content')
-            navContent.classList.toggle('hidden')
-    })
+      const navToggle = document.getElementById("nav-toggle");
+      const navContent = document.getElementById("nav-content");
+      navToggle.addEventListener("click", function () {
+        const navContent = document.getElementById("nav-content");
+        navContent.classList.toggle("hidden");
+      });
     </script>
-</body>
+  </body>
 </html>
