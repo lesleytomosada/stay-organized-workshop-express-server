@@ -1,3 +1,34 @@
+# Stay Organized
+
+## Overview
+
+This project is a simple Todo application where users can create an account, create todos, and view all todos. 
+
+## Technologies Used
+
+- JavaScript: The core functionality of the application is implemented using JavaScript.
+- Node.js: The server-side logic is written in Node.js.
+- HTML: The frontend of the application is built with HTML.
+- Tailwind: The frontend styling 
+
+## HTML Pages
+### Home Page
+- `index.html`: This is the landing page of the application. It provides links to the other pages.
+![Home Page](/public/images/home.png)
+
+### Todos
+- `todos.html`: This page displays a list of all todos. Users can click on the details button to view more details.
+![Todos Page](/public/images/todos.png)
+
+### New Todo
+- `new_todo.html`: This page allows users to create a new todo. Users can enter the todo description and select a user, category, deadline date and priority.
+![New Todo Page](/public/images/new_todo.png)
+
+### New User
+- `new_user.html`: This page allows users to create a new user. It prompts for name, username, and password.
+![New User Page](/public/images/new_user.png)
+
+
 # Stay Organized Workshop Server
 This is intended to be the backend for the Stay Organized workshop.
 
