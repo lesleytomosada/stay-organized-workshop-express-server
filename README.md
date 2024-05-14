@@ -17,7 +17,7 @@ This project is a simple Todo application where users can create an account, cre
 ![Home Page](/public/images/home.png)
 
 ### Todos
-- `todos.html`: This page displays a list of all todos. Users can click on the details button to view more details.
+- `todos.html`: This page displays a list of all todos. Users can click on the details button to view more details, or click the mark complete button to complete the task.
 ![Todos Page](/public/images/todos.png)
 
 ### New Todo
