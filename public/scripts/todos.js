@@ -38,11 +38,11 @@ function getTodos() {
                 <div class="w-64 h-40 mx-1 my-2 relative flex rounded border rounded overflow-hidden shadow-sm">
                     <div class="px-3 py-3">
                         <div class="font-semibold uppercase text-gray-500 tracking-widest mb-2">${todo.description}</div>
-                        <p id="taskDeadline" class="text-gray-700 text-base">
+                        <p id="taskDeadline" class="deadline${todo.id} text-gray-700 text-base">
                             ${todo.completed ? "Completed": "Deadline: " + todo.deadline}
                         </p>
                         <button id="details" class="absolute bottom-2 left-3 border rounded text-white bg-gray-500 px-3 py-1 mt-3 hover:bg-gray-700">Details</button>
-                            ${todo.completed ? "" : `<button id="markComplete" class="absolute bottom-2 right-3 border rounded text-white bg-gray-500 px-3 py-1 mt-3 hover:bg-gray-700">Mark complete</button>`}
+                            ${todo.completed ? "" : `<button id="markComplete" class="complete-${todo.id} absolute bottom-2 right-3 border rounded text-white bg-gray-500 px-3 py-1 mt-3 hover:bg-gray-700">Mark complete</button>`}
                        
                 </div>`;
                 todoResults.innerHTML += card;
@@ -116,10 +116,10 @@ function markComplete(task) {
             'Content-Type': 'application/json'
         },
     }).then(() => {
-        const markCompleteButton = document.querySelector("#markComplete");
+        const markCompleteButton = document.querySelector(".complete-" + task.id);
         markCompleteButton.classList.add("hidden");
 
-        const taskDeadline = document.querySelector('#taskDeadline');
+        const taskDeadline = document.querySelector('.deadline' + task.id);
         taskDeadline.innerHTML = "Completed";
     })
   
